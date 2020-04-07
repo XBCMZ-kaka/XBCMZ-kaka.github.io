@@ -145,20 +145,9 @@
 <p>语法：</p>
 <pre><code>`print（“hello world”）`</code></pre><p>示例：</p>
 <p><code>print（“hello world”）</code></p>
-<p>代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行</p>
-<p>语法：</p>
-<pre><code>(```)
-     function fun(){
-           echo &quot;这是一句非常牛逼的代码&quot;;
-     }
-     fun();
-(```)</code></pre><p>示例：</p>
-<p>(<code>)
-    function fun(){
-         echo &quot;这是一句代码&quot;;
-    }
-    fun();
-(</code>)</p>
 ]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
   </entry>
 </search>
