@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    about me |  壳壳
+    Rpi computer module 使用说明 |  壳壳
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -38,7 +38,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-about me" class="article article-type-post" itemscope
+  <article id="post-Rpi computer module 使用说明" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -46,7 +46,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  about me
+  Rpi computer module 使用说明
 </h1>
  
 
@@ -55,8 +55,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/06/about%20me/" class="article-date">
-  <time datetime="2020-04-06T13:24:22.188Z" itemprop="datePublished">2020-04-06</time>
+      <a href="/2020/09/28/Rpi%20computer%20module%20%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" class="article-date">
+  <time datetime="2020-09-28T00:52:55.332Z" itemprop="datePublished">2020-09-28</time>
 </a>
       
       
@@ -66,7 +66,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">22</span>
+            <span class="post-count">497</span>
         </span>
     </span>
 
@@ -75,7 +75,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -100,9 +100,24 @@
       
 
       
-      <h1 id="王爱辉-的-github-blog"><a href="#王爱辉-的-github-blog" class="headerlink" title="王爱辉 的 github blog"></a>王爱辉 的 github blog</h1><p>嵌入式软件、硬件、matlab</p>
-<p>github 主页</p>
-<p><a href="https://github.com/XBCMZ-kaka/" target="_blank" rel="noopener">https://github.com/XBCMZ-kaka/</a></p>
+      <h1 id="树莓派计算板使用说明"><a href="#树莓派计算板使用说明" class="headerlink" title="树莓派计算板使用说明"></a>树莓派计算板使用说明</h1><h2 id="1-硬件清单"><a href="#1-硬件清单" class="headerlink" title="1 硬件清单"></a>1 硬件清单</h2><h3 id="（1）Compute-Module-3-32GB-树莓派计算模块"><a href="#（1）Compute-Module-3-32GB-树莓派计算模块" class="headerlink" title="（1）Compute Module 3+ 32GB 树莓派计算模块"></a>（1）Compute Module 3+ 32GB 树莓派计算模块</h3><p>图1 RaspBerry computer module</p>
+<p>（2）树莓派CM3/3+ 计算模块扩展板 外设扩展板</p>
+<p>图2 扩展板</p>
+<p>（3）树莓派摄像头</p>
+<p>图3 imx219 相机</p>
+<h2 id="2-软件清单"><a href="#2-软件清单" class="headerlink" title="2 软件清单"></a>2 软件清单</h2><p>（1）SDFormatter.exe</p>
+<p>图4 SDFormatter<br>下载地址：<br><a href="http://www.waveshare.net/w/upload/d/d7/Panasonic_SDFormatter.zip" target="_blank" rel="noopener">http://www.waveshare.net/w/upload/d/d7/Panasonic_SDFormatter.zip</a></p>
+<p>（2）RPiboot_Setup</p>
+<p>图5 rpiboot<br>下载地址：<br><a href="http://www.waveshare.net/w/upload/f/f3/Rpiboot_setup.zip" target="_blank" rel="noopener">http://www.waveshare.net/w/upload/f/f3/Rpiboot_setup.zip</a></p>
+<p>（3）镜像<br>下载地址：<br>链接：<a href="https://pan.baidu.com/s/1_V2FvepdIcp4huIxdP7ANQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1_V2FvepdIcp4huIxdP7ANQ</a><br>提取码：weat</p>
+<h2 id="3-烧录镜像"><a href="#3-烧录镜像" class="headerlink" title="3 烧录镜像"></a>3 烧录镜像</h2><p>（1）提前准备好所需要的树莓派镜像（xxx.img文件）<br>（2）将CM3/CM3+插入IO Board中，将BOOT ENABLE USB SLAVE跳线帽短接EN一端， 拔掉USB SLAVE1/2/3/4 、Select跳线帽。用USB线将IO Board的USB SLAVE 接口连接到PC。</p>
+<p>（3）在rpiboot_setup的安装目录下，找到rpiboot.exe文件，以管理员身份运行。</p>
+<p>在成功运行之后，你会发现CM3/CM3+在PC中被识别为一个移动盘。<br> （注意：CM3+第一次使用的时候，可能需要你在PC的磁盘管理中手动做格式化并分配驱动符，才可以在我的电脑中被发现）使用WinDiskImager.exe烧录工具，选择之前下载的树莓派镜像文件，将镜像烧写到EMMC中（即PC识别出来的盘，注意先格式化）<br>烧写完成之后，将BOOT ENABLE USB SLAVE跳线帽短接DIS一端，并插回USB SLAVE1/2/3/4 Select跳线帽。<br> 接入电源到POWER接口启动即可。<br>【注意】<br>在镜像烧写过程中，注意PC尽量不要对其他USB存储设备进行写操作，避免出现冲突。同时不要触碰usb线缆以及板子，可能会造成烧写中断。</p>
+<h2 id="4-连接相机"><a href="#4-连接相机" class="headerlink" title="4 连接相机"></a>4 连接相机</h2><p>使用相机接口（cam0 cam1）需要短接以下引脚：</p>
+<p>CAM0相关的引脚：</p>
+<p>GPIO28 &lt;-&gt; CD0_SDA<br>GPIO29 &lt;-&gt; CD0_SCL<br>GPIO30 &lt;-&gt; CAM0_IO1<br>GPIO31 &lt;-&gt; CAM0_IO0</p>
+<p>CAM1相关的引脚：</p>
+<p>GPIO0 &lt;-&gt; CD1_SDA<br>GPIO1 &lt;-&gt; CD1_SCL<br>GPIO4 &lt;-&gt; CAM1_IO1<br>GPIO5 &lt;-&gt; CAM1_IO0</p>
 
       
       <!-- reward -->
@@ -171,7 +186,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/06/about%20me/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/09/28/Rpi%20computer%20module%20%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -187,19 +202,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/07/Markdown%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Markdown的用法
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/04/05/hello-world/" class="article-nav-link">
+      <a href="/2020/06/12/%E7%9B%B8%E6%9C%BA%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录</div>
       </a>
     
   </nav>

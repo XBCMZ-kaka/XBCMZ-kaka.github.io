@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/04/05/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>Rpi computer module 使用说明</title>
+    <url>/2020/09/28/Rpi%20computer%20module%20%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[<h1 id="树莓派计算板使用说明"><a href="#树莓派计算板使用说明" class="headerlink" title="树莓派计算板使用说明"></a>树莓派计算板使用说明</h1><h2 id="1-硬件清单"><a href="#1-硬件清单" class="headerlink" title="1 硬件清单"></a>1 硬件清单</h2><h3 id="（1）Compute-Module-3-32GB-树莓派计算模块"><a href="#（1）Compute-Module-3-32GB-树莓派计算模块" class="headerlink" title="（1）Compute Module 3+ 32GB 树莓派计算模块"></a>（1）Compute Module 3+ 32GB 树莓派计算模块</h3><p>图1 RaspBerry computer module</p>
+<p>（2）树莓派CM3/3+ 计算模块扩展板 外设扩展板</p>
+<p>图2 扩展板</p>
+<p>（3）树莓派摄像头</p>
+<p>图3 imx219 相机</p>
+<h2 id="2-软件清单"><a href="#2-软件清单" class="headerlink" title="2 软件清单"></a>2 软件清单</h2><p>（1）SDFormatter.exe</p>
+<p>图4 SDFormatter<br>下载地址：<br><a href="http://www.waveshare.net/w/upload/d/d7/Panasonic_SDFormatter.zip" target="_blank" rel="noopener">http://www.waveshare.net/w/upload/d/d7/Panasonic_SDFormatter.zip</a></p>
+<p>（2）RPiboot_Setup</p>
+<p>图5 rpiboot<br>下载地址：<br><a href="http://www.waveshare.net/w/upload/f/f3/Rpiboot_setup.zip" target="_blank" rel="noopener">http://www.waveshare.net/w/upload/f/f3/Rpiboot_setup.zip</a></p>
+<p>（3）镜像<br>下载地址：<br>链接：<a href="https://pan.baidu.com/s/1_V2FvepdIcp4huIxdP7ANQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1_V2FvepdIcp4huIxdP7ANQ</a><br>提取码：weat</p>
+<h2 id="3-烧录镜像"><a href="#3-烧录镜像" class="headerlink" title="3 烧录镜像"></a>3 烧录镜像</h2><p>（1）提前准备好所需要的树莓派镜像（xxx.img文件）<br>（2）将CM3/CM3+插入IO Board中，将BOOT ENABLE USB SLAVE跳线帽短接EN一端， 拔掉USB SLAVE1/2/3/4 、Select跳线帽。用USB线将IO Board的USB SLAVE 接口连接到PC。</p>
+<p>（3）在rpiboot_setup的安装目录下，找到rpiboot.exe文件，以管理员身份运行。</p>
+<p>在成功运行之后，你会发现CM3/CM3+在PC中被识别为一个移动盘。<br> （注意：CM3+第一次使用的时候，可能需要你在PC的磁盘管理中手动做格式化并分配驱动符，才可以在我的电脑中被发现）使用WinDiskImager.exe烧录工具，选择之前下载的树莓派镜像文件，将镜像烧写到EMMC中（即PC识别出来的盘，注意先格式化）<br>烧写完成之后，将BOOT ENABLE USB SLAVE跳线帽短接DIS一端，并插回USB SLAVE1/2/3/4 Select跳线帽。<br> 接入电源到POWER接口启动即可。<br>【注意】<br>在镜像烧写过程中，注意PC尽量不要对其他USB存储设备进行写操作，避免出现冲突。同时不要触碰usb线缆以及板子，可能会造成烧写中断。</p>
+<h2 id="4-连接相机"><a href="#4-连接相机" class="headerlink" title="4 连接相机"></a>4 连接相机</h2><p>使用相机接口（cam0 cam1）需要短接以下引脚：</p>
+<p>CAM0相关的引脚：</p>
+<p>GPIO28 &lt;-&gt; CD0_SDA<br>GPIO29 &lt;-&gt; CD0_SCL<br>GPIO30 &lt;-&gt; CAM0_IO1<br>GPIO31 &lt;-&gt; CAM0_IO0</p>
+<p>CAM1相关的引脚：</p>
+<p>GPIO0 &lt;-&gt; CD1_SDA<br>GPIO1 &lt;-&gt; CD1_SCL<br>GPIO4 &lt;-&gt; CAM1_IO1<br>GPIO5 &lt;-&gt; CAM1_IO0</p>
 ]]></content>
   </entry>
   <entry>
@@ -149,5 +154,76 @@
       <tags>
         <tag>笔记</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录</title>
+    <url>/2020/06/12/%E7%9B%B8%E6%9C%BA%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="Hikvision-Gige相机-and-Raspberry-Pi-V2-Camera-联合调试记录"><a href="#Hikvision-Gige相机-and-Raspberry-Pi-V2-Camera-联合调试记录" class="headerlink" title="Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录"></a>Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录</h1><h1 id="·"><a href="#·" class="headerlink" title="·"></a>·</h1><h2 id="6-6-调试记录"><a href="#6-6-调试记录" class="headerlink" title="6-6 调试记录"></a>6-6 调试记录</h2><p>pull code 至gitee </p>
+<p>raspberry -&gt; 编译opencv3.4 失败 make -j4</p>
+<h2 id="6-7-调试记录"><a href="#6-7-调试记录" class="headerlink" title="6-7 调试记录"></a>6-7 调试记录</h2><p>原来的问题一直有，没有实质进展，继续调试python例程</p>
+<p>仍存在问题<br>raspberry -&gt; 编译opencv3.4 失败<br>raspberry -&gt; 工业相机帧率只有7-8帧 速率慢，可能原因: 网卡mtu 数据包量（巨帧失败，达不到9000）</p>
+<p>ubantu 16 -&gt; 开启线程失败</p>
+<p>明日计划</p>
+<p>raspberry -&gt; 尝试picamera 进行图像预处理尝试</p>
+<p>ubantu 16 -&gt; 阅读代码，调试GrabImage.py &amp; uu.py &amp; GetImage.py</p>
+<h2 id="6-8-调试记录"><a href="#6-8-调试记录" class="headerlink" title="6-8 调试记录"></a>6-8 调试记录</h2><p>1 raspberry -&gt; 尝试picamera &amp; cv2（python）  进行阈值分割 threshold</p>
+<p>2 看视频</p>
+<h2 id="6-9-调试记录"><a href="#6-9-调试记录" class="headerlink" title="6-9 调试记录"></a>6-9 调试记录</h2><p>观看检测仪讲解视频，并做记录</p>
+<p>调试picamera module 和 阅读海康sdk</p>
+<h2 id="6-10-调试记录"><a href="#6-10-调试记录" class="headerlink" title="6-10 调试记录"></a>6-10 调试记录</h2><p>讨论整体方案，基本否定工业相机 采用 ARM A53+M4 或ARM M4+M7<br>调试picamera 使用 shutter_speed 控制曝光 检测光强</p>
+<h2 id="6-11-调试记录"><a href="#6-11-调试记录" class="headerlink" title="6-11 调试记录"></a>6-11 调试记录</h2><p>framerate x shutter_speed =1</p>
+<p>================================================================</p>
+<h4 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h4><p>软件架构说明</p>
+<h4 id="参与贡献"><a href="#参与贡献" class="headerlink" title="参与贡献"></a>参与贡献</h4><ol>
+<li>Fork 本仓库</li>
+<li>新建 Feat_xxx 分支</li>
+<li>提交代码</li>
+<li>新建 Pull Request</li>
+</ol>
+<h4 id="码云特技"><a href="#码云特技" class="headerlink" title="码云特技"></a>码云特技</h4><ol>
+<li>使用 Readme_XXX.md 来支持不同的语言，例如 Readme_en.md, Readme_zh.md</li>
+<li>码云官方博客 <a href="https://blog.gitee.com" target="_blank" rel="noopener">blog.gitee.com</a></li>
+<li>你可以 <a href="https://gitee.com/explore" target="_blank" rel="noopener">https://gitee.com/explore</a> 这个地址来了解码云上的优秀开源项目</li>
+<li><a href="https://gitee.com/gvp" target="_blank" rel="noopener">GVP</a> 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目</li>
+<li>码云官方提供的使用手册 <a href="https://gitee.com/help" target="_blank" rel="noopener">https://gitee.com/help</a></li>
+<li>码云封面人物是一档用来展示码云会员风采的栏目 <a href="https://gitee.com/gitee-stars/" target="_blank" rel="noopener">https://gitee.com/gitee-stars/</a><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Initial commit</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/04/05/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
 </search>

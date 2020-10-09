@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    about me |  壳壳
+    Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录 |  壳壳
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -38,7 +38,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-about me" class="article article-type-post" itemscope
+  <article id="post-相机调试记录" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -46,7 +46,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  about me
+  Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录
 </h1>
  
 
@@ -55,8 +55,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/06/about%20me/" class="article-date">
-  <time datetime="2020-04-06T13:24:22.188Z" itemprop="datePublished">2020-04-06</time>
+      <a href="/2020/06/12/%E7%9B%B8%E6%9C%BA%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-06-11T17:36:43.000Z" itemprop="datePublished">2020-06-12</time>
 </a>
       
       
@@ -66,7 +66,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">22</span>
+            <span class="post-count">420</span>
         </span>
     </span>
 
@@ -100,9 +100,51 @@
       
 
       
-      <h1 id="王爱辉-的-github-blog"><a href="#王爱辉-的-github-blog" class="headerlink" title="王爱辉 的 github blog"></a>王爱辉 的 github blog</h1><p>嵌入式软件、硬件、matlab</p>
-<p>github 主页</p>
-<p><a href="https://github.com/XBCMZ-kaka/" target="_blank" rel="noopener">https://github.com/XBCMZ-kaka/</a></p>
+      <h1 id="Hikvision-Gige相机-and-Raspberry-Pi-V2-Camera-联合调试记录"><a href="#Hikvision-Gige相机-and-Raspberry-Pi-V2-Camera-联合调试记录" class="headerlink" title="Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录"></a>Hikvision Gige相机 and Raspberry Pi V2 Camera  联合调试记录</h1><h1 id="·"><a href="#·" class="headerlink" title="·"></a>·</h1><h2 id="6-6-调试记录"><a href="#6-6-调试记录" class="headerlink" title="6-6 调试记录"></a>6-6 调试记录</h2><p>pull code 至gitee </p>
+<p>raspberry -&gt; 编译opencv3.4 失败 make -j4</p>
+<h2 id="6-7-调试记录"><a href="#6-7-调试记录" class="headerlink" title="6-7 调试记录"></a>6-7 调试记录</h2><p>原来的问题一直有，没有实质进展，继续调试python例程</p>
+<p>仍存在问题<br>raspberry -&gt; 编译opencv3.4 失败<br>raspberry -&gt; 工业相机帧率只有7-8帧 速率慢，可能原因: 网卡mtu 数据包量（巨帧失败，达不到9000）</p>
+<p>ubantu 16 -&gt; 开启线程失败</p>
+<p>明日计划</p>
+<p>raspberry -&gt; 尝试picamera 进行图像预处理尝试</p>
+<p>ubantu 16 -&gt; 阅读代码，调试GrabImage.py &amp; uu.py &amp; GetImage.py</p>
+<h2 id="6-8-调试记录"><a href="#6-8-调试记录" class="headerlink" title="6-8 调试记录"></a>6-8 调试记录</h2><p>1 raspberry -&gt; 尝试picamera &amp; cv2（python）  进行阈值分割 threshold</p>
+<p>2 看视频</p>
+<h2 id="6-9-调试记录"><a href="#6-9-调试记录" class="headerlink" title="6-9 调试记录"></a>6-9 调试记录</h2><p>观看检测仪讲解视频，并做记录</p>
+<p>调试picamera module 和 阅读海康sdk</p>
+<h2 id="6-10-调试记录"><a href="#6-10-调试记录" class="headerlink" title="6-10 调试记录"></a>6-10 调试记录</h2><p>讨论整体方案，基本否定工业相机 采用 ARM A53+M4 或ARM M4+M7<br>调试picamera 使用 shutter_speed 控制曝光 检测光强</p>
+<h2 id="6-11-调试记录"><a href="#6-11-调试记录" class="headerlink" title="6-11 调试记录"></a>6-11 调试记录</h2><p>framerate x shutter_speed =1</p>
+<p>================================================================</p>
+<h4 id="软件架构"><a href="#软件架构" class="headerlink" title="软件架构"></a>软件架构</h4><p>软件架构说明</p>
+<h4 id="参与贡献"><a href="#参与贡献" class="headerlink" title="参与贡献"></a>参与贡献</h4><ol>
+<li>Fork 本仓库</li>
+<li>新建 Feat_xxx 分支</li>
+<li>提交代码</li>
+<li>新建 Pull Request</li>
+</ol>
+<h4 id="码云特技"><a href="#码云特技" class="headerlink" title="码云特技"></a>码云特技</h4><ol>
+<li>使用 Readme_XXX.md 来支持不同的语言，例如 Readme_en.md, Readme_zh.md</li>
+<li>码云官方博客 <a href="https://blog.gitee.com" target="_blank" rel="noopener">blog.gitee.com</a></li>
+<li>你可以 <a href="https://gitee.com/explore" target="_blank" rel="noopener">https://gitee.com/explore</a> 这个地址来了解码云上的优秀开源项目</li>
+<li><a href="https://gitee.com/gvp" target="_blank" rel="noopener">GVP</a> 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目</li>
+<li>码云官方提供的使用手册 <a href="https://gitee.com/help" target="_blank" rel="noopener">https://gitee.com/help</a></li>
+<li>码云封面人物是一档用来展示码云会员风采的栏目 <a href="https://gitee.com/gitee-stars/" target="_blank" rel="noopener">https://gitee.com/gitee-stars/</a><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>Initial commit</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ol>
 
       
       <!-- reward -->
@@ -171,13 +213,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/06/about%20me/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/12/%E7%9B%B8%E6%9C%BA%E8%B0%83%E8%AF%95%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
 
     </footer>
 
@@ -187,19 +231,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/07/Markdown%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-nav-link">
+      <a href="/2020/09/28/Rpi%20computer%20module%20%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Markdown的用法
+            Rpi computer module 使用说明
           
         </div>
       </a>
     
     
-      <a href="/2020/04/05/hello-world/" class="article-nav-link">
+      <a href="/2020/04/07/Markdown%E7%9A%84%E7%94%A8%E6%B3%95/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">Markdown的用法</div>
       </a>
     
   </nav>
